@@ -1,10 +1,25 @@
-import React, { StrictMode, Suspense } from 'react'
+import './wdyr'
+import React, { StrictMode, Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
+
 import * as Sentry from '@sentry/react'
 import { BrowserTracing } from '@sentry/tracing'
+
 import reportWebVitals from './reportWebVitals'
-import App from './App'
+
+const App = lazy(() => import('./App'))
+
+Sentry.init({
+  dsn: process.env.SENTRY_REACT_DSN,
+  integrations: [new BrowserTracing()],
+
+  // We recommend adjusting this value in production,
+  // or using tracesSampler for finer control.
+  // Set tracesSampleRate to 1.0 to capture 100%
+  // of transactions for performance monitoring.
+  tracesSampleRate: 1.0,
+})
 
 ReactDOM.render(
   <Suspense fallback={<div />}>

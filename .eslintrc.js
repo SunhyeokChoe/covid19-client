@@ -19,6 +19,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'global-require': 0,
     'linebreak-style': 'off',
     // prettier
     'prettier/prettier': [
