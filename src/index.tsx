@@ -1,13 +1,19 @@
-import React, { StrictMode, lazy } from 'react'
+import React, { StrictMode, Suspense } from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
+import * as Sentry from '@sentry/react'
+import { BrowserTracing } from '@sentry/tracing'
 import reportWebVitals from './reportWebVitals'
-
-const App = lazy(() => import('./App'))
+import App from './App'
 
 ReactDOM.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+  <Suspense fallback={<div />}>
+    <Router>
+      <StrictMode>
+        <App />
+      </StrictMode>
+    </Router>
+  </Suspense>,
   document.getElementById('root'),
 )
 
