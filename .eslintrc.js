@@ -19,6 +19,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
+    'global-require': 0,
     'linebreak-style': 'off',
     // prettier
     'prettier/prettier': [
@@ -34,6 +35,14 @@ module.exports = {
     // React
     'react/jsx-filename-extension': ['error', { extensions: ['.tsx'] }],
     'react/prop-types': ['off', {}],
+    'react/function-component-definition': [
+      2,
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+    'arrow-body-style': ['off', 'always'],
     // import
     'import/extensions': [
       'error',
@@ -46,6 +55,8 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    // `/` is just for sanity and can be ommited.
+    // 'import/no-unresolved': [2, { ignore: ['^@/'] }],
     'import/prefer-default-export': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
@@ -60,8 +71,9 @@ module.exports = {
       version: 'detect',
     },
     'import/resolver': {
+      typescript: {},
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
       },
     },
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
