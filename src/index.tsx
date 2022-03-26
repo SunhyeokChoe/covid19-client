@@ -2,7 +2,7 @@ import './sentry'
 import './wdyr'
 import React, { StrictMode, Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import reportWebVitals from './reportWebVitals'
 
@@ -10,11 +10,11 @@ const App = lazy(() => import('./App'))
 
 ReactDOM.render(
   <Suspense fallback={<div />}>
-    <Router>
+    <BrowserRouter>
       <StrictMode>
         <App />
       </StrictMode>
-    </Router>
+    </BrowserRouter>
   </Suspense>,
   document.getElementById('root'),
 )

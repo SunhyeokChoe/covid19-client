@@ -8,6 +8,7 @@ if (process.env.NODE_ENV === 'development') {
     trackAllPureComponents: true,
     logOwnerReasons: true,
     logOnDifferentValues: true,
+    logErrors: true,
   })
 
   console.log('%cWDYR is working.', 'color: #0090C0; font-size: 30px; font-weight: bold; font-style: oblique;')

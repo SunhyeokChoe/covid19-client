@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
+    "baseUrl": "./src",
     "target": "es6",
     "lib": ["esnext", "dom", "dom.iterable"],
-    "baseUrl": "./src",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,7 +18,16 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "incremental": true
+    // "paths": {
+    //   "components/*": ["components/*"],
+    //   "constants/*": ["constants/*"],
+    //   "pages/*": ["pages/*"],
+    //   "hooks/*": ["hooks/*"],
+    //   "utils/*": ["utils/*"],
+    //   "apis/*": ["apis/*"]
+    // }
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "build"]
+  // "extends": "./tsconfig.base.json"
 }
